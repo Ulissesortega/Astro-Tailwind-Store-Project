@@ -1,0 +1,15 @@
+[
+    {
+        "id" : "M21",
+        "Name" : "Holis White",
+        "Group" : "Kitchen Cabinets",
+        "image_url": "../M21.jpg"
+    },
+
+    {
+        "id" : "M22",
+        "Name" : "Holis Grey",
+        "Group" : "Kitchen Cabinets",
+        "image_url": "../M22.jpg"
+    }
+]
