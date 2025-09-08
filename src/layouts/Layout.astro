@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 ---
 
@@ -7,21 +7,64 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-	<ClientRouter />
+    <title>Milzen Kitchen Cabinets</title>
+    
+    <!-- Add custom transition styles -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+      /* Custom transition animation */
+      :root {
+        --transition-duration: 0.4s;
+      }
+      
+      /* Zoom animation for our images */
+      [data-astro-transition-scope=astro] {
+        animation-duration: var(--transition-duration);
+        animation-timing-function: ease-in-out;
+      }
+      
+      /* Custom animation for the slide/zoom effect */
+      @keyframes zoom-in {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      @keyframes zoom-out {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(1.1);
+        }
+      }
+      
+      /* Apply the animations */
+      [data-astro-transition-fallback=old] {
+        animation-name: zoom-out;
+      }
+      
+      [data-astro-transition-fallback=new] {
+        animation-name: zoom-in;
+      }
+    </style>
   </head>
-  <body>    
+  <body>
+    <ClientRouter />
     <slot />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

@@ -3,12 +3,45 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <a href="./Countertops">
-        <img
-            src="/M25.jpg"
-            alt="M25 Cabinet"
-            class="aspect-3/2 w-full rounded-md"
-            transition-name="slide"
-        />
-    </a>
+    <div class="mt-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">M25 Cabinet Details</h2>
+        <p class="text-lg max-w-2xl mx-auto">
+            This premium cabinet features hand-crafted details, premium select
+            hardwoods, and exceptional craftsmanship that makes it perfect for
+            any kitchen renovation.
+        </p>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <a
+            href="/Countertops"
+            class="block mb-6 text-blue-600 hover:text-blue-800 transition-colors"
+        >
+            <div class="flex justify-center">
+                <img
+                    src="/M25.jpg"
+                    alt="M25 Cabinet - Detailed View"
+                    class="max-w-full rounded-lg shadow-xl"
+                    style="view-transition-name: m25-image;"
+                />
+            </div>
+        </a>
+    </div>
+
+    <!-- Add a small script to handle the view transition -->
+    <script>
+        // Optional: Add a slight zoom effect on page load for the detailed view
+        document.addEventListener("astro:page-load", () => {
+            const img = document.querySelector(
+                '[style*="view-transition-name: m25-image"]',
+            );
+            if (img) {
+                img.style.transform = "scale(1.02)";
+                setTimeout(() => {
+                    img.style.transition = "transform 0.3s ease-out";
+                    img.style.transform = "scale(1)";
+                }, 50);
+            }
+        });
+    </script>
 </Layout>
