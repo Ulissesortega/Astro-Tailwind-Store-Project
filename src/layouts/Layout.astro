@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
+import 'bootstrap/dist/css/bootstrap.css'
 ---
 
 <html lang="en">
@@ -8,7 +9,9 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Milzen Kitchen Cabinets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <title>Milzen Kitchen Cabinets</title>    
     
     <!-- Add custom transition styles -->
     <style>
@@ -62,9 +65,11 @@ import "../styles/global.css";
         animation-name: zoom-in;
       }
     </style>
-  </head>
+  </head>  
   <body>
     <ClientRouter />
     <slot />
+    <script is:inline src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script is:inline src="https://kit.fontawesome.com/059f4102ce.js" crossorigin="anonymous"></script>
   </body>
 </html>

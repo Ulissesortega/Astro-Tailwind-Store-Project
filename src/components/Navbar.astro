@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <section class="Navbar">
+        <div class="Logo">
+            <img
+                src="../public/Gexpo.png"
+                alt="Company Logo"
+                width="150px"
+                height="150px"
+            />
+        </div>
+
+        <div class="Links">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Projects</li>
+                <li>Gallery</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+
+        <div class="cta">
+            <button type="button" class="btn btn-primary">Get Started</button>
+        </div>
+
+        <div class="burger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    /* Reset and base styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .Navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-around; /* Changed from space-around for better alignment */
+        padding: 20px 5%; /* Use percentage for responsive padding */
+        max-width: 1200px; /* Limit width for large screens */
+        margin: 0 auto; /* Center the navbar */
+        position: relative;
+    }
+    
+    .Logo img {
+        height: 60px; 
+        width: auto; 
+        display: block; /* Remove extra space below image */
+    }
+    
+    .Links {
+        display: flex;
+        align-items: center;
+        flex: 1; /* Allow links to take available space */
+        justify-content: center; /* Center the links */
+    }
+    
+    .Links ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px; /* Slightly increased gap for better spacing */
+        font-size: 18px;
+        list-style: none; /* Remove default list styling */
+    }
+    
+    .Links li {
+        position: relative;
+        cursor: pointer;
+        padding: 8px 0; /* Add vertical padding for better click area */
+        transition: color 0.3s ease;
+    }
+    
+    .Links li:hover {
+        color: #3b82f6; /* Add hover effect */
+    }
+    
+    .Links li::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #3b82f6;
+        transition: width 0.3s ease;
+    }
+    
+    .Links li:hover::after {
+        width: 100%;
+    }
+    
+    .cta {
+        display: flex;
+        align-items: center;
+    }
+    
+    .btn {
+        padding: 10px 24px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(59, 130, 246, 0.3);
+        background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    }
+    
+    .burger {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .Links {
+            display: none;
+        }
+        
+        .cta {
+            display: none;
+        }
+        
+        .burger {
+            display: block;
+        }
+        
+        .Navbar {
+            justify-content: space-between;
+            padding: 15px 5%;
+        }
+    }
+    
+    /* Ensure perfect alignment */
+    .Logo, .Links, .cta {
+        height: 60px; /* Match logo height */
+        display: flex;
+        align-items: center;
+    }
+</style>
